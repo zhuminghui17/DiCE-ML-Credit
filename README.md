@@ -1,48 +1,103 @@
 [![CI](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml)
 
-This is the Python template for IDS721 Data Engineering Systems.
+# Final Project: DiCE ML Pipeline in Credit Card Approval Model 
 
-This document provides an overview of the key components within the project repository.
+## Overview
+### DiCE ML
+DiCE (Diverse Counterfactual Explanations) is an emerging machine learning tool designed to enhance the interpretability and fairness of predictive models. It focuses on providing counterfactual explanations, which are essentially insights into how slight changes in input features can lead to different prediction outcomes. This is particularly useful in scenarios where understanding the model's decision-making process is crucial, like credit approval.
+https://interpret.ml/DiCE/
 
-### `.devcontainer`
-- **`Dockerfile`**: Defines the container's build process and environment.
-- **`devcontainer.json`**: Contains configuration settings for the development environment in VS Code.
+### DiCE in Credit Analysis
+For instance, if a loan application is denied, DiCE can suggest the minimal changes needed for the applicant to get an approval, such as increasing their income by a certain amount or reducing existing debts. This not only offers transparency into the model's workings but also empowers users with actionable feedback. DiCE, being model-agnostic, can be integrated with various machine learning models, making it a versatile tool in the growing field of explainable AI.
 
-### `workflows`
-- Contains GitHub Actions workflows for automated build, test, and deployment pipelines.
+## Training Model
 
-### `.gitignore`
-- Lists the files and directories that Git should ignore.
+### Dataset
+This dataset contains a cleaned version of this dataset from UCI machine learning repository on credit card approvals.
+https://www.kaggle.com/datasets/samuelcortinhas/credit-card-approval-clean-data/data
 
-### `Makefile`
-- Used for automating compilation, testing, and other development tasks on Unix-based systems.
+###
 
-### `README.md`
-- Offers instructions and an introduction to the project.
+## Requirements
+Your team project should include the following:
 
-### `main.py`
-- The main Python script of the project.
+* Microservice
+Build a microservice that interfaces with a data pipeline. You can choose Python or Rust for development. The microservice should include logging and be containerized using the Distroless Docker image. A Dockerfile must be included in your repository.
 
-### `requirements.txt`
-- Specifies all necessary libraries and packages for the project.
+* Load Test
+The microservice must be capable of handling 10,000 requests per second. A load test verifying this performance should be included.
 
-### `test_main.py`
-- Test script designed to validate the functionality of `main.py` within IDEs.
+* Data Engineering
+Your project should involve the use of a library specializing in data engineering such as Spark, Pandas, SQL, a vector database, or any other relevant library.
 
-### `img`
-- Stores screenshots or images of the project's execution results.
+* Infrastructure as Code (IaC)
+Your project must utilize an IaC solution for infrastructure setup and management. You can choose among AWS CloudFormation, AWS SAM, AWS CDK, or the Serverless Framework.
 
-## Continuous Integration with GitHub Actions
+* Continuous Integration and Continuous Delivery (CI/CD)
+> Implement a CI/CD pipeline for your project. It could be through GitHub Actions or AWS Cloud Build or any other relevant tool.
 
-The project uses GitHub Actions, employing the following commands:
+* README.md
+A comprehensive README file that clearly explains what the project does, its dependencies, how to run the program, its limitations, potential areas for improvement, and how AI Pair Programming tools (GitHub Copilot and one more tool of your choice) were used in your development process.
 
-- `make install`: Installs project dependencies.
-![make install](images/make_install.jpg)
-- `make test`: Runs unit tests.
-![make test](images/make_test.jpg)
-- `make format`: Formats the code according to the specified style.
-- `make lint`: Checks the code for potential errors and style issues.
-![other](images/others.jpg)
+* Architectural Diagram
+A clear diagram representing the architecture of your application should be included in your project documentation.
 
-### CI Results
-![GitHub Actions](images/github_actions.jpg)
+-[x] GitHub Configurations
+
+Your GitHub repository must include GitHub Actions and a .devcontainer configuration for GitHub Codespaces. This should make the local version of your project completely reproducible. The repository should also include GitHub Action build badges for install, lint, test, and format actions.
+
+* Teamwork Reflection
+
+Each team member should submit a separate 1-2 page management report reflecting on the team's functioning according to the principles discussed in your teamwork book. This report should not be part of the GitHub README but rather a separate document. It should include a peer evaluation in which each team member is graded on their performance, stating three positive attributes and three areas for improvement as the basis for the grade. Note that each student will share the teamwork reflection with their team and discuss it in a session before turning in the report. The outcome of this feedback session must be included in the report for full credit.
+
+* Quantitative Assessment
+
+The project must include a quantitative assessment of its reliability and stability. You must use data science fundamentals to describe system performance, e.g., average latency per request at different levels of requests per second (100, 1000, etc.). Think of the software system as a data science problem that needs to be described using data science principles.
+
+* Demo Video
+
+A YouTube link in README.md showing a clear, concise walkthrough and demonstration of your application, including the load test and system performance assessment.
+
+* Team Size and Makeup
+
+The team should consist of 3-4 people, ideally composed of 1-2 strong programmers and 1-2 quantitative storytellers.
+
+### Grading Rubric
+
+Microservice (20%)
+Implementation of the microservice: 10 points
+
+Use of logging: 5 points
+Proper containerization with Distroless: 5 points
+
+Load Test (20%)
+Successful load test at 10,000 requests/second: 20 points
+
+Data Engineering (10%)
+Effective use of a data engineering library: 10 points
+
+Infrastructure as Code (IaC) (10%)
+Correct setup and management of infrastructure using IaC: 10 points
+
+Continuous Integration and Continuous Delivery (CI/CD) (10%)
+Proper implementation of a CI/CD pipeline: 10 points
+
+README.md (10%)
+Clarity and comprehensiveness of README.md: 5 points
+Explanation of AI Pair Programming tool usage: 5 points
+
+Architectural Diagram (5%)
+Quality and clarity of the architectural diagram: 5 points
+
+GitHub Configurations (5%)
+GitHub Actions + GitHub Codespaces .devcontainer configuration: 5 points
+
+Final Team Presentation (15%)
+Quality and clarity of presentation: 10 points
+Team's ability to effectively answer questions and discuss the project: 5 points
+
+Teamwork Reflection (5%)
+Quality and sincerity of reflection: 3 points
+Reflection includes peer evaluation with three positive attributes and three areas for improvement: 2 points
+
+Total: 100%
