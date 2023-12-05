@@ -1,11 +1,23 @@
 [![CI](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml)
 
-# Final Project: DiCE ML Pipeline in Credit Card Approval Model 
+# Final Project: DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
 
 ## Overview
+
+Streamlint UI
+Pre-trained Model
+AWS SageMaker for ML Model Endpoint
+
+User Invidualual Data Point entry in UI -> Model give the counterfactual option, -> ChatGPT to give targeted advertising email contact -> less willing to cancel -> secure profit for hotel
+
+
 ### DiCE ML
 DiCE (Diverse Counterfactual Explanations) is an emerging machine learning tool designed to enhance the interpretability and fairness of predictive models. It focuses on providing counterfactual explanations, which are essentially insights into how slight changes in input features can lead to different prediction outcomes. This is particularly useful in scenarios where understanding the model's decision-making process is crucial, like credit approval.
 https://interpret.ml/DiCE/
+
+### Topic
+### Hotel Booking, Cancellation, and Loss
+
 
 ### DiCE in Credit Analysis
 For instance, if a loan application is denied, DiCE can suggest the minimal changes needed for the applicant to get an approval, such as increasing their income by a certain amount or reducing existing debts. This not only offers transparency into the model's workings but also empowers users with actionable feedback. DiCE, being model-agnostic, can be integrated with various machine learning models, making it a versatile tool in the growing field of explainable AI.
