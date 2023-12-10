@@ -2,6 +2,24 @@
 
 # Final Project: DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
 
+## Variables need input
+
+- Hotel Type (options)
+    - City Hotel
+    - Resort Hotel
+
+- Booking Date (picker)
+- Arrive Date (picker)
+— Number of Adults (number)
+— Number of Children (number) / Baby
+- Meal Type (choices)
+- Country
+
+- is_repeated_guest
+- previous_cancellations
+- previous_bookings_not_canceled
+
+
 ## Overview
 
 Streamlint UI
