@@ -22,6 +22,18 @@ https://interpret.ml/DiCE/
 ### DiCE in Credit Analysis
 For instance, if a loan application is denied, DiCE can suggest the minimal changes needed for the applicant to get an approval, such as increasing their income by a certain amount or reducing existing debts. This not only offers transparency into the model's workings but also empowers users with actionable feedback. DiCE, being model-agnostic, can be integrated with various machine learning models, making it a versatile tool in the growing field of explainable AI.
 
+## Project Architecture
+the project graph will be put here.
+
+* Microservice
+* Docker
+* Serverless
+
+## Project Structure
+
+
+## Load Testing
+
 ## Training Model
 
 ### Dataset
