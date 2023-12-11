@@ -1,64 +1,77 @@
 [![CI](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml)
 
-# Final Project: DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
-
-## Variables need input
-
-- Hotel Type (options)
-    - City Hotel
-    - Resort Hotel
-
-- Booking Date (picker)
-- Arrive Date (picker)
-— Number of Adults (number)
-— Number of Children (number) / Baby
-- Meal Type (choices)
-- Country
-
-- is_repeated_guest
-- previous_cancellations
-- previous_bookings_not_canceled
+# DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
 
 
-## Overview
+This project is designed to utilize the DiCE model to produce counterfactual recommendations for individuals who are at risk of canceling their hotel reservations. Featuring a straightforward user interface developed with Streamlit for data input, our model aims to discern the factors that might retain these customers. Leveraging OpenAI's API, we intend to craft targeted email advertising campaigns. These campaigns are strategically designed to subtly influence the customers' inclination towards cancelling their booking, thereby enhancing customer retention and securing profits for the hotel.
 
-Streamlint UI
-Pre-trained Model
-AWS SageMaker for ML Model Endpoint
-
-User Invidualual Data Point entry in UI -> Model give the counterfactual option, -> ChatGPT to give targeted advertising email contact -> less willing to cancel -> secure profit for hotel
+## Introduction
+In the competitive field of hospitality, retaining customers is as crucial as acquiring new ones. This project explores a novel approach to reduce booking cancellations by using AI/ML-driven insights and personalized marketing strategies.
 
 
 ### DiCE ML
-DiCE (Diverse Counterfactual Explanations) is an emerging machine learning tool designed to enhance the interpretability and fairness of predictive models. It focuses on providing counterfactual explanations, which are essentially insights into how slight changes in input features can lead to different prediction outcomes. This is particularly useful in scenarios where understanding the model's decision-making process is crucial, like credit approval.
-https://interpret.ml/DiCE/
 
-### Topic
-### Hotel Booking, Cancellation, and Loss
+[DiCE (Diverse Counterfactual Explanations)](https://interpret.ml/DiCE/) is a powerful tool in explainable AI, providing insights into AI decision-making by generating "what-if" scenarios. It helps to understand how minor changes could alter an AI's decision, offering a range of possibilities rather than just one. 
+
+In the hotel industry, DiCE can analyze customer data to identify factors that might lead to booking cancellations. For instance, it can suggest that offering a room upgrade or a discount could have prevented a cancellation. These insights are invaluable for developing personalized strategies to reduce cancellations, especially when combined with targeted email marketing using OpenAI's API. This integration not only enhances customer retention but also boosts overall business success.
 
 
-### DiCE in Credit Analysis
-For instance, if a loan application is denied, DiCE can suggest the minimal changes needed for the applicant to get an approval, such as increasing their income by a certain amount or reducing existing debts. This not only offers transparency into the model's workings but also empowers users with actionable feedback. DiCE, being model-agnostic, can be integrated with various machine learning models, making it a versatile tool in the growing field of explainable AI.
+
 
 ## Project Architecture
-the project graph will be put here.
+
+### Architectural Diagram
+
 
 * Microservice
 * Docker
 * Serverless
 
 ## Project Structure
+data: folder where we are going to store our iris.csv dataset. We can safely do this because the dataset is small and we can store it on our own computer.
 
+app.py: the file where we will code the Streamlit app.
+
+model.py: the file where we will train our model.
+
+predict.py: the file where we will code functions that will allow us to run predictions every time a user triggers them.
 
 ## Load Testing
 
-## Training Model
+## Data Overview, Engineering, and Model Training Process
 
-### Dataset
-This dataset contains a cleaned version of this dataset from UCI machine learning repository on credit card approvals.
-https://www.kaggle.com/datasets/samuelcortinhas/credit-card-approval-clean-data/data
+### Dataset Source
+This project utilizes the [Hotel Booking Demand](https://www.kaggle.com/datasets/jessemostipak/hotel-bookings-demand) dataset from Kaggle, which provides detailed booking information for a real hotel. This dataset is crucial for understanding customer behavior and preferences in hotel booking scenarios.
 
-###
+
+### Data Preparation
+
+1. **Data Loading**: The dataset is read into a Pandas DataFrame from "hotel_bookings.csv".
+
+2. **Data Cleaning and Preprocessing**:
+   - **Outcome Variable Modification**: The 'is_canceled' column is transformed to 'not_canceled' for more intuitive interpretation.
+   - **Column Removal**: Several columns deemed less relevant or redundant are removed, such as 'days_in_waiting_list', 'arrival_date_year', 'assigned_room_type', and others.
+   - **Handling Missing Values**: Missing values are replaced appropriately, with special attention to the 'children' and 'meal' columns.
+   - **Dropping Zero Guests Entries**: Rows with no guests (0 adults, children, and babies) are removed to maintain data quality.
+
+3. **Dataset Information**: Post-cleaning, the dataset's structure and remaining columns are analyzed to understand the distribution of numerical and categorical variables.
+
+### Libraries Used
+- `dice_ml`: For generating diverse counterfactual explanations.
+- `sklearn`: Employed for data preprocessing and model training.
+- `pandas`: Used for data manipulation and analysis.
+
+### Model Training and Counterfactual Generation
+1. **Data Splitting**: The dataset is split into training and testing sets using `train_test_split`.
+2. **Feature Selection**: Identification and separation of numerical and categorical features for further processing.
+3. **Pipeline Creation**: A machine learning pipeline is created using `OneHotEncoder` for categorical features and `RandomForestClassifier` for model training.
+4. **Model Training**: The model is trained on the processed training dataset.
+5. **DiCE Model Initialization**: The trained model is wrapped in a DiCE `Model` object, and a DiCE `Data` object is created with specified continuous features and the outcome name.
+6. **Counterfactual Generation**: The DiCE model generates counterfactuals for the test data, aiming to determine changes that could lead to the opposite of the current prediction (not canceled bookings).
+
+### Model Persistence
+The trained DiCE model is saved to disk using `joblib` for future reference or deployment.
+
 
 ## Project Requirements
 
@@ -116,3 +129,28 @@ https://www.kaggle.com/datasets/samuelcortinhas/credit-card-approval-clean-data/
     - Quality and sincerity of reflection: 3 points
     - Reflection includes peer evaluation with three positive attributes and three areas for improvement: 2 points
 - Total: 100%
+
+
+## Variables need input
+
+- Hotel Type (options)
+    - City Hotel
+    - Resort Hotel
+
+- Booking Date (picker)
+- Arrive Date (picker)
+— Number of Adults (number)
+— Number of Children (number) / Baby
+- Meal Type (choices)
+- Country
+
+- is_repeated_guest
+- previous_cancellations
+- previous_bookings_not_canceled
+
+
+Streamlint UI
+Pre-trained Model
+AWS SageMaker for ML Model Endpoint
+
+User Invidualual Data Point entry in UI -> Model give the counterfactual option, -> ChatGPT to give targeted advertising email contact -> less willing to cancel -> secure profit for hotel

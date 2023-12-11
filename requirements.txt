@@ -15,3 +15,5 @@ scikit-learn
 pandas
 numpy
 datetime
+joblib
+openai==0.28
