@@ -22,7 +22,7 @@ In the hotel industry, DiCE can analyze customer data to identify factors that m
 
 ### Architectural Diagram
 
-![Alt text](diagram.drawio.png)
+![Alt text](images/diagram.drawio.png)
 
 
 ## Project Structure
