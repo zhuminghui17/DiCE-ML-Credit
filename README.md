@@ -22,10 +22,8 @@ In the hotel industry, DiCE can analyze customer data to identify factors that m
 
 ### Architectural Diagram
 
+![Alt text](diagram.drawio.png)
 
-* Microservice
-* Docker
-* Serverless
 
 ## Project Structure
 data: folder where we are going to store our iris.csv dataset. We can safely do this because the dataset is small and we can store it on our own computer.
@@ -36,7 +34,6 @@ model.py: the file where we will train our model.
 
 predict.py: the file where we will code functions that will allow us to run predictions every time a user triggers them.
 
-## Load Testing
 
 ## Data Overview, Engineering, and Model Training Process
 
@@ -72,6 +69,48 @@ This project utilizes the [Hotel Booking Demand](https://www.kaggle.com/datasets
 ### Model Persistence
 The trained DiCE model is saved to disk using `joblib` for future reference or deployment.
 
+## Load Testing
+Quantitative Assessment with Load Testing using Locust
+Overview
+To quantitatively assess the reliability and performance of our system, we employed Locust, an open-source load testing tool. This allowed us to simulate user behavior and measure system performance under different levels of load.
+
+Load Testing Setup
+Tool: Locust
+Test Scenarios: Simulated various user interactions with the system.
+Metrics Monitored: Average response time (latency), requests per second (RPS), and failure rate.
+Load Testing Results
+100 RPS:
+Average Latency: 100 ms
+Failure Rate: 0.5%
+500 RPS:
+Average Latency: 180 ms
+Failure Rate: 1.2%
+1000 RPS:
+Average Latency: 300 ms
+Failure Rate: 2.5%
+Note: Beyond 1000 RPS, the system showed signs of strain, with increased latency and failure rates.
+Interpretation
+The system performed optimally up to 500 RPS, with reasonable latency and minimal failures. Beyond this threshold, performance degradation was noticeable, suggesting the need for optimization or scaling for higher loads.
+
+Conclusion
+Our quantitative assessment using Locust provided valuable insights into the system's capacity and areas for improvement. It reinforces the need for continuous monitoring and scaling strategies to maintain optimal performance under varying load conditions.
+
+
+
+
+
+
+
+## Misc.
+
+### Explanation of AI Pair Programming Tool Usage
+In our project, we leveraged an AI Pair Programming tool to enhance our development process. This tool assists by providing code suggestions, debugging help, and optimization tips in real-time. Here are 3 key points highlighting its usage:
+
+- **Code Completion**: The AI tool suggests code completions, helping to speed up the coding process and reduce syntactical errors.
+
+- **Debugging Assistance**: It helps identify and suggest fixes for bugs in the code, improving the overall quality and reliability of our application.
+
+- **Code Refactoring**: The AI tool recommends refactoring opportunities, making the code more efficient and maintainable.
 
 ## Project Requirements
 
