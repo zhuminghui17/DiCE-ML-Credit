@@ -1,5 +1,6 @@
 import joblib
 
+
 def predict(data):
     # Load the trained model
     exp = joblib.load("exp.sav")
@@ -8,7 +9,7 @@ def predict(data):
     e1 = exp.generate_counterfactuals(data, total_CFs=5, desired_class="opposite")
 
     # Convert the counterfactuals to JSON
-    counterfactual = e1.cf_examples_list[0].final_cfs_df.to_json(orient='records')
+    counterfactual = e1.cf_examples_list[0].final_cfs_df.to_json(orient="records")
 
     # Create a comprehensive prompt with background information for OpenAI's API
     prompt = f"""Task: Generate personalized hotel advertising emails using DiCE model counterfactuals.
