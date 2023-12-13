@@ -2,7 +2,6 @@
 
 # DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
 
-
 This project is designed to utilize the DiCE model to produce counterfactual recommendations for individuals who are at risk of canceling their hotel reservations. Featuring a straightforward user interface developed with Streamlit for data input, our model aims to discern the factors that might retain these customers. Leveraging OpenAI's API, we intend to craft targeted email advertising campaigns. These campaigns are strategically designed to subtly influence the customers' inclination towards cancelling their booking, thereby enhancing customer retention and securing profits for the hotel.
 
 ## Introduction

@@ -17,4 +17,4 @@ EXPOSE 5000
 ENV NAME World
 
 # Run app.py when the container launches
-CMD ["streamlit", "run", "main.py"]
+CMD ["streamlit", "run", "main.py", "--host=0.0.0.0", "--port=5000"]
