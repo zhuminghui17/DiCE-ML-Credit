@@ -25,7 +25,6 @@ def get_guest_info():
     num_of_adults = st.sidebar.number_input("Number of Adults", value=1)
     num_of_children = st.sidebar.number_input("Number of Children", value=0)
     
-    # Full names for meal options
     meal_options = {
         "Bed & Breakfast": "BB",
         "Full Board": "FB",
@@ -33,8 +32,6 @@ def get_guest_info():
         "Self Catering": "SC"
     }
     meal_choice = st.sidebar.selectbox("Type of Meal Booked", list(meal_options.keys()))
-
-    # Map the full name to the abbreviation
     meal = meal_options[meal_choice]
 
     is_repeated_guest = st.sidebar.checkbox("is a repeated guest")
@@ -74,7 +71,6 @@ def user_input():
             "meal": [meal],
             "is_repeated_guest": [int(is_repeated_guest)],
             "previous_cancellations": [int(previous_cancellations)],
-
             "previous_bookings_not_canceled": [int(previous_bookings_not_canceled)],
             "reserved_room_type": [reserved_room_type],
             "deposit_type": [deposit_type],
@@ -85,28 +81,28 @@ def user_input():
             }
 
     return pd.DataFrame(data)
-
 def main():
     display_header()
     input_df = user_input()
-    if st.button("Run"):
+    api_key = st.text_input("Enter your OpenAI API key", type="password")
+
+    if st.button("Run", key="run1") and api_key:  # Unique key for this button
+        openai.api_key = api_key
         prompt = predict(input_df)
 
-        # OpenAI API key (replace 'YOUR_API_KEY' with your actual API key)
-        openai.api_key = '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'
-
-       # Make the API call to OpenAI using the updated syntax
         try:
             response = openai.Completion.create(
-              model="text-davinci-003",  # Choose the appropriate model
-              prompt=prompt,
-              max_tokens=1000  # Adjust as needed
+                model="text-davinci-003",
+                prompt=prompt,
+                max_tokens=1000
             )
 
-            # Display the generated email
+            # Display the generated response
             st.write(response['choices'][0]['text'].strip())
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
+
 
 if __name__ == "__main__":
     main()
