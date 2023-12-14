@@ -1,4 +1,6 @@
-[![CI](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml/badge.svg)](https://github.com/zhuminghui17/python-template/actions/workflows/cicd.yml)
+[![Format](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/format.yml/badge.svg)](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/format.yml)
+[![Install](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/install.yml/badge.svg)](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/install.yml) [![Lint](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/lint.yml/badge.svg)](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/lint.yml) [![Test](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/test.yml/badge.svg)](https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising/actions/workflows/test.yml)
+
 
 # DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
 
@@ -141,14 +143,14 @@ In our project, we leveraged an AI Pair Programming tool to enhance our developm
     - Implementation of the microservice: 10 points
     - Use of logging: 5 points
     - Proper containerization with Distroless: 5 points
-- Load Test (20%)
-    - Successful load test at 10,000 requests/second: 20 points
-- Data Engineering (10%)
-    - Effective use of a data engineering library: 10 points
+- [x] Load Test (20%)
+    - [x] Successful load test at 10,000 requests/second: 20 points
+- [x] Data Engineering (10%)
+    - [x] Effective use of a data engineering library: 10 points
 - Infrastructure as Code (IaC) (10%)
     - Correct setup and management of infrastructure using IaC: 10 points
-- Continuous Integration and Continuous Delivery (CI/CD) (10%)
-    - Proper implementation of a CI/CD pipeline: 10 points
+- [x] Continuous Integration and Continuous Delivery (CI/CD) (10%)
+    - [x] Proper implementation of a CI/CD pipeline: 10 points
 - README.md (10%)
     - Clarity and comprehensiveness of README.md: 5 points
     - Explanation of AI Pair Programming tool usage: 5 points
@@ -188,4 +190,6 @@ Pre-trained Model
 AWS SageMaker for ML Model Endpoint
 
 User Invidualual Data Point entry in UI -> Model give the counterfactual option, -> ChatGPT to give targeted advertising email contact -> less willing to cancel -> secure profit for hotel
+
+
 
