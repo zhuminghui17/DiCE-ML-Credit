@@ -70,6 +70,72 @@ This project utilizes the [Hotel Booking Demand](https://www.kaggle.com/datasets
 ### Model Persistence
 The trained DiCE model is saved to disk using `joblib` for future reference or deployment.
 
+## Dependencies
+- Python 3.9
+- Streamlit
+- OpenAI
+- DiCE
+- Docker
+- Azure Container Registry
+- Azure App Services
+- Azure Load Tests
+
+## Local Deployment
+To run this application locally, ensure Docker is installed on your machine. Follow these steps:
+
+1. **Clone the repository:**
+    Use the command below to clone the repository.
+    ```
+    git clone https://github.com/zhuminghui17/DiCE-ML-Hotel-Advertising
+    ```
+
+2. **Build the Docker image:**
+    Build your Docker image using the following command.
+
+    ```
+    docker build -t my-flask-app .
+    ```
+
+3. **Run the Docker container:**
+    Run your Docker container with the command below. This will start your app on the specified port.
+
+    ```
+    docker run -p 5000:5000 my-flask-app
+    ```
+
+### DockerHub Login and Push
+To upload the built image to DockerHub, follow these commands:
+
+1. **Docker Login:**
+    Log in to your DockerHub account using the command:
+
+    ```
+    docker login --username=yourusername
+    ```
+
+2. **Build and Tag the Image:**
+    Build and tag your Docker image for DockerHub.
+
+    ```
+    docker build -t yourusername/reponame .
+    ```
+
+3. **Push to DockerHub:**
+    Push your Docker image to DockerHub with this command.
+
+    ```
+    docker push yourusername/reponame
+    ```
+
+> Note: Ensure you have a DockerHub account before proceeding with these steps.
+
+
+### Set up Azure App Services
+When configuring your Azure Web App, it's important to specify the WEBSITES_PORT to match the port you're using. In this instance, set it to 5000.
+
+
+
+
 ## Load Testing: Quantitative Assessment with Azure Load Testing
 
 
