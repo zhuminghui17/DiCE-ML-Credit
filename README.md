@@ -151,13 +151,13 @@ In our project, we leveraged an AI Pair Programming tool to enhance our developm
     - Correct setup and management of infrastructure using IaC: 10 points
 - [x] Continuous Integration and Continuous Delivery (CI/CD) (10%)
     - [x] Proper implementation of a CI/CD pipeline: 10 points
-- README.md (10%)
-    - Clarity and comprehensiveness of README.md: 5 points
-    - Explanation of AI Pair Programming tool usage: 5 points
-- Architectural Diagram (5%)
-    - Quality and clarity of the architectural diagram: 5 points
-- GitHub Configurations (5%)
-    - GitHub Actions + GitHub Codespaces .devcontainer configuration: 5 points
+- [x] README.md (10%)
+    - [x] Clarity and comprehensiveness of README.md: 5 points
+    - [x] Explanation of AI Pair Programming tool usage: 5 points
+- [x] Architectural Diagram (5%)
+    - [x] Quality and clarity of the architectural diagram: 5 points
+- [x] GitHub Configurations (5%)
+    - [x] GitHub Actions + GitHub Codespaces .devcontainer configuration: 5 points
 - Final Team Presentation (15%)
     - Quality and clarity of presentation: 10 points
     - Team's ability to effectively answer questions and discuss the project: 5 points
@@ -165,31 +165,3 @@ In our project, we leveraged an AI Pair Programming tool to enhance our developm
     - Quality and sincerity of reflection: 3 points
     - Reflection includes peer evaluation with three positive attributes and three areas for improvement: 2 points
 - Total: 100%
-
-
-## Variables need input
-
-- Hotel Type (options)
-    - City Hotel
-    - Resort Hotel
-
-- Booking Date (picker)
-- Arrive Date (picker)
-— Number of Adults (number)
-— Number of Children (number) / Baby
-- Meal Type (choices)
-- Country
-
-- is_repeated_guest
-- previous_cancellations
-- previous_bookings_not_canceled
-
-
-Streamlint UI
-Pre-trained Model
-AWS SageMaker for ML Model Endpoint
-
-User Invidualual Data Point entry in UI -> Model give the counterfactual option, -> ChatGPT to give targeted advertising email contact -> less willing to cancel -> secure profit for hotel
-
-
-
