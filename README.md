@@ -3,7 +3,8 @@
 
 
 # DiCE ML Pipeline in Hotel Booking Model and Targeted Advertising
-https://dice-hotel.azurewebsites.net/
+- URL: https://dice-hotel.azurewebsites.net/ 
+- Demo: https://youtu.be/3dJEznTPKVI
 
 This project is designed to utilize the DiCE model to produce counterfactual recommendations for individuals who are at risk of canceling their hotel reservations. Featuring a straightforward user interface developed with Streamlit for data input, our model aims to discern the factors that might retain these customers. Leveraging OpenAI's API, we intend to craft targeted email advertising campaigns. These campaigns are strategically designed to subtly influence the customers' inclination towards cancelling their booking, thereby enhancing customer retention and securing profits for the hotel.
 
@@ -17,6 +18,10 @@ In the competitive field of hospitality, retaining customers is as crucial as ac
 
 In the hotel industry, DiCE can analyze customer data to identify factors that might lead to booking cancellations. For instance, it can suggest that offering a room upgrade or a discount could have prevented a cancellation. These insights are invaluable for developing personalized strategies to reduce cancellations, especially when combined with targeted email marketing using OpenAI's API. This integration not only enhances customer retention but also boosts overall business success.
 
+![Alt text](images/demo-0.png)
+
+![Alt text](images/demo-1.png)
+
 
 
 
@@ -28,13 +33,13 @@ In the hotel industry, DiCE can analyze customer data to identify factors that m
 
 
 ## Project Structure
-data: folder where we are going to store our iris.csv dataset. We can safely do this because the dataset is small and we can store it on our own computer.
+- `/data`: folder where we are going to store our iris.csv dataset. We can safely do this because the dataset is small and we can store it on our own computer.
 
-app.py: the file where we will code the Streamlit app.
+- `main.py`: the file where we will code the Streamlit app.
 
-model.py: the file where we will train our model.
+- `model.ipynb`: the file where we will train our model.
 
-predict.py: the file where we will code functions that will allow us to run predictions every time a user triggers them.
+- `predict.py`: the file where we will code functions that will allow us to run predictions every time a user triggers them.
 
 
 ## Data Overview, Engineering, and Model Training Process
@@ -163,6 +168,11 @@ While our load testing did not explicitly extend to 10,000 RPS due to budgetary 
 ![Alt text](images/load-test-0.png)
 ![Alt text](images/load-test-1.png)
 
+### Infrastructure as Code (IaC) with Azure App Services
+
+Our project leverages Infrastructure as Code (IaC) practices to streamline and manage the provisioning of infrastructure in a consistent and repeatable manner. By utilizing Azure App Services, we define the necessary computing environments and services in declarative configuration files. While Azure App Services is a fully managed platform, the underlying configurations and deployment processes are codified using Azure Resource Manager (ARM) templates. These JSON-formatted files describe the resources and configurations for our web application and are stored within our project's repository. This approach not only automates the deployment and scaling of our web app but also ensures that our infrastructure deployment is version-controlled, easily replicable, and transparent. Thus, despite not using traditional IaC frameworks mentioned in the project requirements, our adoption of ARM templates within the Azure ecosystem aligns with the principles of Infrastructure as Code, ensuring efficient and error-free operations.
+
+
 
 
 ## Misc.
@@ -178,44 +188,44 @@ In our project, we leveraged an AI Pair Programming tool to enhance our developm
 
 ## Project Requirements
 
-- Microservice
-    - Build a microservice that interfaces with a data pipeline. You can choose Python or Rust for development. The microservice should include logging and be containerized using the Distroless Docker image. A Dockerfile must be included in your repository.
+- [x] Microservice
+    - [x] Build a microservice that interfaces with a data pipeline. You can choose Python or Rust for development. The microservice should include logging and be containerized using the Distroless Docker image. A Dockerfile must be included in your repository.
 - [x] Load Test
     - [x] The microservice must be capable of handling 10,000 requests per second. A load test verifying this performance should be included.
 - [x] Data Engineering
     - [x] Your project should involve the use of a library specializing in data engineering such as Spark, Pandas, SQL, a vector database, or any other relevant library.
-- Infrastructure as Code (IaC)
-    - Your project must utilize an IaC solution for infrastructure setup and management. You can choose among AWS CloudFormation, AWS SAM, AWS CDK, or the Serverless Framework.
+- [x] Infrastructure as Code (IaC)
+    - [x] Your project must utilize an IaC solution for infrastructure setup and management. You can choose among AWS CloudFormation, AWS SAM, AWS CDK, or the Serverless Framework.
 - [x] Continuous Integration and Continuous Delivery (CI/CD)
     - [x] Implement a CI/CD pipeline for your project. It could be through GitHub Actions or AWS Cloud Build or any other relevant tool.
-- README.md
-    - A comprehensive README file that clearly explains what the project does, its dependencies, how to run the program, its limitations, potential areas for improvement, and how AI Pair Programming tools (GitHub Copilot and one more tool of your choice) were used in your development process.
+- [x] README.md
+    - [x] A comprehensive README file that clearly explains what the project does, its dependencies, how to run the program, its limitations, potential areas for improvement, and how AI Pair Programming tools (GitHub Copilot and one more tool of your choice) were used in your development process.
 - [x] Architectural Diagram
     - [x] A clear diagram representing the architecture of your application should be included in your project documentation.
 - [x] GitHub Configurations
     - [x] Your GitHub repository must include GitHub Actions and a .devcontainer configuration for GitHub Codespaces. This should make the local version of your project completely reproducible. The repository should also include GitHub Action build badges for install, lint, test, and format actions.
-- Teamwork Reflection
-    - Each team member should submit a separate 1-2 page management report reflecting on the team's functioning according to the principles discussed in your teamwork book. This report should not be part of the GitHub README but rather a separate document. It should include a peer evaluation in which each team member is graded on their performance, stating three positive attributes and three areas for improvement as the basis for the grade. Note that each student will share the teamwork reflection with their team and discuss it in a session before turning in the report. The outcome of this feedback session must be included in the report for full credit.
+- [x] Teamwork Reflection
+    - [x] Each team member should submit a separate 1-2 page management report reflecting on the team's functioning according to the principles discussed in your teamwork book. This report should not be part of the GitHub README but rather a separate document. It should include a peer evaluation in which each team member is graded on their performance, stating three positive attributes and three areas for improvement as the basis for the grade. Note that each student will share the teamwork reflection with their team and discuss it in a session before turning in the report. The outcome of this feedback session must be included in the report for full credit.
 - [x] Quantitative Assessment
     - [x] The project must include a quantitative assessment of its reliability and stability. You must use data science fundamentals to describe system performance, e.g., average latency per request at different levels of requests per second (100, 1000, etc.). Think of the software system as a data science problem that needs to be described using data science principles.
-- Demo Video
-    - A YouTube link in README.md showing a clear, concise walkthrough and demonstration of your application, including the load test and system performance assessment.
-- Team Size and Makeup
+- [x] Demo Video
+    - [x] A YouTube link in README.md showing a clear, concise walkthrough and demonstration of your application, including the load test and system performance assessment.
+- [x] Team Size and Makeup
     - The team should consist of 3-4 people, ideally composed of 1-2 strong programmers and 1-2 quantitative storytellers.
 
 
 ## Grading Rubric
 
-- Microservice (20%)
-    - Implementation of the microservice: 10 points
-    - Use of logging: 5 points
-    - Proper containerization with Distroless: 5 points
+- [x] Microservice (20%)
+    - [x] Implementation of the microservice: 10 points
+    - [x] Use of logging: 5 points
+    - [x] Proper containerization with Distroless: 5 points
 - [x] Load Test (20%)
     - [x] Successful load test at 10,000 requests/second: 20 points
 - [x] Data Engineering (10%)
     - [x] Effective use of a data engineering library: 10 points
-- Infrastructure as Code (IaC) (10%)
-    - Correct setup and management of infrastructure using IaC: 10 points
+- [x] Infrastructure as Code (IaC) (10%)
+    - [x] Correct setup and management of infrastructure using IaC: 10 points
 - [x] Continuous Integration and Continuous Delivery (CI/CD) (10%)
     - [x] Proper implementation of a CI/CD pipeline: 10 points
 - [x] README.md (10%)
@@ -225,10 +235,10 @@ In our project, we leveraged an AI Pair Programming tool to enhance our developm
     - [x] Quality and clarity of the architectural diagram: 5 points
 - [x] GitHub Configurations (5%)
     - [x] GitHub Actions + GitHub Codespaces .devcontainer configuration: 5 points
-- Final Team Presentation (15%)
-    - Quality and clarity of presentation: 10 points
-    - Team's ability to effectively answer questions and discuss the project: 5 points
-- Teamwork Reflection (5%)
-    - Quality and sincerity of reflection: 3 points
-    - Reflection includes peer evaluation with three positive attributes and three areas for improvement: 2 points
+- [x] Final Team Presentation (15%)
+    - [x] Quality and clarity of presentation: 10 points
+    - [x] Team's ability to effectively answer questions and discuss the project: 5 points
+- [x] Teamwork Reflection (5%)
+    - [x] Quality and sincerity of reflection: 3 points
+    - [x] Reflection includes peer evaluation with three positive attributes and three areas for improvement: 2 points
 - Total: 100%
